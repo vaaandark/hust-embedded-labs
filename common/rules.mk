@@ -1,10 +1,7 @@
-
-CROSS_COMPILE:=/work/OrangePi4/gcc-aarch64/bin/aarch64-none-linux-gnu-
-
 CC:=$(CROSS_COMPILE)gcc
 
-CFLAGS:=-Wall -O2
-LDFLAGS:=-Wall
+CFLAGS:=-Wall -Ofast -march=native -flto -fopenmp -fopt-info-vec-optimized
+LDFLAGS:=-Wall -Ofast -march=native -flto -fopenmp -fopt-info-vec-optimized
 
 INCLUDE := -I../common/external/include
 LIB := -L../common/external/lib -ljpeg -lfreetype -lpng -lasound -lz -lc -lm
