@@ -1,7 +1,12 @@
 CC:=$(CROSS_COMPILE)gcc
 
-CFLAGS:=-Wall -Ofast -march=native -flto -fopenmp -fopt-info-vec-optimized
-LDFLAGS:=-Wall -Ofast -march=native -flto -fopenmp -fopt-info-vec-optimized
+CFLAGS:=-Wall -Ofast -fopenmp -fopt-info-vec-optimized
+LDFLAGS:=-Wall -Ofast -fopenmp -fopt-info-vec-optimized
+
+ifndef CROSS_COMPILE
+	CFLAGS += -march=native -flto
+	LDFLAGS += -march=native -flto
+endif
 
 INCLUDE := -I../common/external/include
 LIB := -L../common/external/lib -ljpeg -lfreetype -lpng -lasound -lz -lc -lm
