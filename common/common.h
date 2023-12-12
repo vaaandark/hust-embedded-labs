@@ -82,6 +82,7 @@ void fb_update(void);
 
 /*lab2*/
 void fb_draw_pixel(int x, int y, int color);
+void fb_draw_circle(int x, int y, int r, int color);
 void fb_draw_rect(int x, int y, int w, int h, int color);
 void fb_draw_border(int x, int y, int w, int h, int color);
 void fb_draw_line(int sx, int sy, int dx, int dy, int color);
