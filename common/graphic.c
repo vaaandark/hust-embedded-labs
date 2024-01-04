@@ -312,12 +312,14 @@ void fb_draw_image(int x, int y, fb_image *image, int color) {
                     case 0:
                         break;
                     case 255:
-                        *dst = *(int *)src_;
+                        bgr[0] = src_[0];
+                        bgr[1] = src_[1];
+                        bgr[2] = src_[2];
                         break;
                     default:
-                        bgr[0] += ((src_[0] - bgr[0]) * 255) >> 8;
-                        bgr[1] += ((src_[1] - bgr[1]) * 255) >> 8;
-                        bgr[2] += ((src_[2] - bgr[2]) * 255) >> 8;
+                        bgr[0] += ((src_[0] - bgr[0]) * alpha) >> 8;
+                        bgr[1] += ((src_[1] - bgr[1]) * alpha) >> 8;
+                        bgr[2] += ((src_[2] - bgr[2]) * alpha) >> 8;
                         break;
                 }
             }
